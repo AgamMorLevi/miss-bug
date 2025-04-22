@@ -13,12 +13,13 @@ export const bugService = {
     getDefaultFilter
 }
 
+
 function query(filterBy) {
     return storageService.query(STORAGE_KEY)
     .then(bugs => {
 
         if (filterBy.txt) {
-            const regExp = new RegExp(filterBy.txt, 'i')
+            let regExp = new RegExp(filterBy.txt, 'i')
             bugs = bugs.filter(bug => regExp.test(bug.title))
         }
 

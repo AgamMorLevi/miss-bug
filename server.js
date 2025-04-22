@@ -1,30 +1,44 @@
 import express from 'express' 
 import cookieParser from 'cookie-parser'
-import { bugService } from './services/bug.service.local.js'
-import { loggerService } from './services/Logger.service.js' 
+
+import { bugService } from './services/bug.service.js'
+import { loggerService } from './services/Logger.service.js'
 
 const app = express() 
 
-app.get('/', (req, res) => res.send('Hello there')) 
-app.listen(3030, () => console.log('Server ready at port 3030'))
+app.use(express.static('public'))
+app.use(cookieParser())
+
 
 //Provide an API for Bugs CRUDL: Implement one by one along with a bugService
 
-//TODO: bug filter
-//LIST
-app.get('/api/bug', (req, res) => {}) 
+//TODO: List of bugs
+app.get('/api/bug', (req, res) => {
+   bugService.query()
+   .then(bugs => res.send(bugs))
+   .catch(err => {
+    loggerService.error('Cannot get bugs', err)
+    res.status(500).send('Cannot load bugs')
+})
+
+}) 
 
 //TODO: Set Defult value
-//ADD / UPDATE
 app.get('/api/bug/save', (req, res) => {}) 
 
 //TODO:erfactor Err
-//READ
 app.get('/api/bug/:bugId', (req, res) => {}) 
 
-//DELETE
 app.get('/api/bug/:bugId/remove', (req, res) => {}) 
 
 //TODO:Make the option for PDF
+
+const port = 3030
+
+app.get('/', (req, res) => res.send('Hello there')) 
+app.listen(port, () =>
+    loggerService.info(`Server listening on port http://127.0.0.1:${port}/`)
+)
+
 
 //BONUS:logger request

@@ -3,8 +3,8 @@ const { useState, useEffect } = React
 import { bugService } from '../services/bug.service.local.js'
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 
-import { BugFilter } from '../cmps/BugFilter.jsx'
-import { BugList } from '../cmps/BugList.jsx'
+import { BugFilter } from '../public/cmps/BugFilter.jsx'
+import { BugList } from '../public/cmps/BugList.jsx'
 
 export function BugIndex() {
     const [bugs, setBugs] = useState(null)
