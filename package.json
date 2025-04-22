@@ -1,6 +1,7 @@
 {
   "name": "miss-bug-proj",
   "version": "1.0.0",
+  "type": "module",
   "main": "app.js",
   "directories": {
     "lib": "lib"
