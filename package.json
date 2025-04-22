@@ -1,0 +1,27 @@
+{
+  "name": "miss-bug-proj",
+  "version": "1.0.0",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AgamMorLevi/miss-bug.git"
+  },
+  "author": "Agam Mor-Levi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AgamMorLevi/miss-bug/issues"
+  },
+  "homepage": "https://github.com/AgamMorLevi/miss-bug#readme",
+  "description": "",
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^5.1.0"
+  }
+}
